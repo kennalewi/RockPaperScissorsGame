@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
+/* * is a universal selector */
+
+* {
+    background: #FFFBF5;
+}
+
+.stage {
+    display: flex;
+    justify-content: space-between;
+    background-color: #F7EFE5;
+    margin: 1vw;
+    padding: 2vw 2vw;
+}
+
+.choicesParent{
+    border: 1px solid black;
+    padding: 3vh;
+    
+    text-align: center;
+}
+.choicesChild {
+    display: inline-block;
+    border: 1px solid red;
+    vertical-align: middle;
+    font-family: 'Rubik', Arial, sans-serif;
+    color: #674188;
+}
+
+.scoreBoard {
+    border: 1px solid black;
+    margin: 1vw;
+    padding: 2vw 2vw;
+    text-align: center;
+}
+
+.scoreCount {
+    display: inline-block;
+    border: 1px solid red;
+    vertical-align: middle;
+    font-family: 'Rubik', Arial, sans-serif;
+    color: #674188;
+}
