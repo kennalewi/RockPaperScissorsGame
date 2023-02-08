@@ -4,20 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="style.css">
-    
+    <script src="app.js" type="module"></script>
+    <title>Rock Paper Scissors</title>
 </head>
 <body>
     <div class="stage">
-        <div class="choicesParent">
-            <h2 class="choicesChild">Player Choice: </h2>
-            <h2 class="scoreCount">0</h2>
+        <h1 class="titles">Scoreboard</h1>
+        <div class="stageChild">
+            <div class="scoreParent">
+                <h2 class="scoreChild">Player Score: </h2>
+                <h2 class="scoreCount" id="playerScore"></h2>
+            </div>
+            <div class="scoreParent">
+                <h2 class="scoreChild">Computer Score:</h2>
+                <h2 class="scoreCount" id="computerScore"></h2>
+            </div>
         </div>
-        <div class="choicesParent">
-            <h2 class="choicesChild">Computer Choice: </h2>
-            <h2 class="scoreCount">0</h2>
+        <div class="stageChild">
+            <h2 class="result" id="resultText">Result</h2>
+            <div class="box">
+                <h2 id="playerChoice"></h2>
+            </div>
+            <div class="box">
+                <h2 id="computerChoice"></h2>
+            </div>
         </div>
+    </div>
+    <div class="buttonsContainer">
+        <button class="choiceBtn" id="choiceBtn">Rock</button>
+        <button class="choiceBtn" id="choiceBtn">Paper</button>
+        <button class="choiceBtn" id="choiceBtn">Scissors</button>
+    </div>
+    <div class="buttonsContainer">
+        <button class="choiceBtn" id="restartBtn">Restart Game</button>
     </div>
 </body>
 </html>
