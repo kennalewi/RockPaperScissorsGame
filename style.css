@@ -5,17 +5,64 @@
     font-family: 'Rubik', Arial, sans-serif;
 }
 
-.stage {
+body {
+    background-color: #FFFBF5;
+    margin: 0px;
+}
+
+.scoreboard {
     background-color: #F7EFE5;
+    width: 60vw;
+    margin: auto;
+    padding: 1vh 10vw;
+    border-radius: 10px;
+}
+
+.scoreboardChild {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin: 0vh 1vw;
+}
+.scoreParent{
+    padding: 0vh;
+    text-align: center;
+}
+.scoreChild {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: 'Rubik', Arial, sans-serif;
+    color: #674188;
+}
+
+.scoreboardTitle {
+    background: none;
+    text-align: center;
+    color: #674188;
+    font-size: 30px;
+    margin: 0px 0px 3vh 0px;
+}
+
+.scoreCount {
+    display: inline-block;
+    vertical-align: middle;
+    color: #674188;
+}
+
+.stage {
+    margin: 3vh 1vw 0vh 1vw;
 }
 
 .stageChild {
     position: relative;
     display: flex;
     justify-content: space-between;
-    background-color: #F7EFE5;
-    margin: 0vh 1vw;
-    padding: 0vw 2vw 2vw 2vw;
+}
+
+.box {
+    height: 50vh;
+    width: 50vh;
+    text-align: center;
 }
 
 .result {
@@ -35,51 +82,12 @@
     padding: 0vw 2vw 2vw 2vw;
 }
 
-.scoreParent{
-    padding: 0vh;
-    text-align: center;
-}
-.scoreChild {
-    display: inline-block;
-    vertical-align: middle;
-    font-family: 'Rubik', Arial, sans-serif;
-    color: #674188;
-}
-
-.scoreBoard {
-    margin: 1vw;
-    padding: 2vw 2vw;
-    text-align: center;
-}
-
-.scoreCount {
-    display: inline-block;
-    vertical-align: middle;
-    font-family: 'Rubik', Arial, sans-serif;
-    color: #674188;
-}
-
-.box {
-    height: 50vh;
-    width: 50vh;
-    text-align: center;
-}
-
-.titles {
-    background: none;
-    text-align: center;
-    font-size: 30px;
-    padding-top: 3vh;
-    margin: 0;
-
-}
-
 .choiceBtn {
     border: none;
     border-radius: 15px;
     background-color: #674188;
     padding: 15px 32px;
-    min-width: 160px;
+    width: 200px;
     text-align: center;
     font-size: 20px;  
     color: white;
@@ -102,4 +110,56 @@
     cursor: not-allowed;
 }
 
+.resetBtn {
+    border: 2px solid ;
+    border-radius: 15px;
+    background-color: white;
+    padding: 15px 32px;
+    width: 200px;
+    text-align: center;
+    font-size: 20px;
+    color: #674188;
+    cursor: pointer;
+    box-shadow: 0 9px #674188;
+}
+
+.resetBtn:hover {
+    background-color: #f7f7f7;
+    }
+    
+.resetBtn:active {
+background-color: #f7f7f7;
+box-shadow: 0 5px #674188;
+transform: translateY(4px);
+}
+
+.resetBtn:disabled {
+opacity: 0.6;
+cursor: not-allowed;
+}
+
+:root {
+    --strokeWidth: 2px;
+    --offsetWidth: 6px;
+    --strokeColor: #674188;
+}
+
+.title {
+    text-align: center;
+    padding: 20px 0px;
+    margin: 0px;
+    font-size: 50px;
+    letter-spacing: 2px;
+    color: #C3ACD0;
+    text-shadow: 0 var(--offsetWidth) 0 #42215e, /* middle bottom shadow */
+    calc(-1 * var(--strokeWidth))  calc(-1 * var(--strokeWidth)) 0 var(--strokeColor), /* left top shadow */
+                0px  calc(-1 * var(--strokeWidth)) 0 var(--strokeColor), /* middle top shadow */
+                var(--strokeWidth)  calc(-1 * var(--strokeWidth)) 0 var(--strokeColor), /* right top shadow */
+                calc(-1 * var(--strokeWidth)) 0px 0 var(--strokeColor), /* left middle shadow */    
+                var(--strokeWidth) 0px 0 var(--strokeColor), /* right middle shadow */             
+                calc(-1 * var(--strokeWidth)) calc(var(--offsetWidth) - (var(--offsetWidth)/2)) 0 var(--strokeColor), /* left bottom shadow buffer 1*/ 
+                var(--strokeWidth) calc(var(--offsetWidth) - (var(--offsetWidth)/2)) 0 var(--strokeColor), /* right bottom shadow buffer 1*/    
+                calc(-1 * var(--strokeWidth)) var(--offsetWidth) 0 var(--strokeColor), /* left bottom shadow */
+                var(--strokeWidth) var(--offsetWidth) 0 var(--strokeColor); /* right bottom shadow */
+}
 

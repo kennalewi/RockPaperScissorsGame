@@ -9,18 +9,21 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <div class="stage">
-        <h1 class="titles">Scoreboard</h1>
-        <div class="stageChild">
+    <h1 class="title">Rock! Paper! Scissors!</h1>
+    <div class="scoreboard">
+        <h1 class="scoreboardTitle">Scoreboard</h1>
+        <div class="scoreboardChild">
             <div class="scoreParent">
-                <h2 class="scoreChild">Player Score: </h2>
+                <h2 class="scoreChild">Player: </h2>
                 <h2 class="scoreCount" id="playerScore"></h2>
             </div>
             <div class="scoreParent">
-                <h2 class="scoreChild">Computer Score:</h2>
+                <h2 class="scoreChild">Computer:</h2>
                 <h2 class="scoreCount" id="computerScore"></h2>
             </div>
         </div>
+    </div>
+    <div class="stage">
         <div class="stageChild">
             <h2 class="result" id="resultText"></h2>
             <div class="box">
@@ -37,7 +40,7 @@
         <button class="choiceBtn" id="choiceBtn">Scissors</button>
     </div>
     <div class="buttonsContainer">
-        <button class="choiceBtn" id="restartBtn">Start Game</button>
+        <button class="resetBtn" id="restartBtn">Start Game</button>
     </div>
 </body>
 </html>
