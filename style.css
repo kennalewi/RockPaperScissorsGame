@@ -50,23 +50,32 @@ body {
 }
 
 .stage {
-    margin: 3vh 1vw 0vh 1vw;
+    margin: 0vh 1vw;
+    height: 40vh;
 }
 
 .stageChild {
     position: relative;
     display: flex;
     justify-content: space-between;
+    min-height: 40vh;
 }
 
 .box {
-    height: 50vh;
     width: 50vh;
+    margin: auto;
+    line-height: 150px;
+}
+
+.emojiSprite {
+    line-height: normal;
     text-align: center;
+    vertical-align: center;
+    font-size: 15vw;
 }
 
 .result {
-    font-size: 40px;
+    font-size: 5vw;
     position: absolute;
     margin: 0px;
     top: calc(50% - (.5 * 40px));
@@ -77,6 +86,7 @@ body {
 
 .buttonsContainer {
     display: flex;
+    gap: 10px;
     justify-content: space-evenly;
     margin: 3vh 10vw;
     padding: 0vw 2vw 2vw 2vw;
@@ -162,4 +172,3 @@ cursor: not-allowed;
                 calc(-1 * var(--strokeWidth)) var(--offsetWidth) 0 var(--strokeColor), /* left bottom shadow */
                 var(--strokeWidth) var(--offsetWidth) 0 var(--strokeColor); /* right bottom shadow */
 }
-

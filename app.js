@@ -11,6 +11,9 @@ let player;
 let computer;
 let result;
 
+let playerSprite;
+let computerSprite;
+
 let playerScoreCount = 0;
 let computerScoreCount = 0;
 let winner = "";
@@ -24,7 +27,7 @@ restartBtn.addEventListener("click", setGame);
 
 // asks user to choose an option, 
 function setGame(){
-    resultText.textContent = "Choose a throw!"
+    resultText.textContent = "Choose!"
     // enables choice buttons
     choiceBtns.forEach(choiceBtn => {
         choiceBtn.disabled = false;
@@ -43,11 +46,13 @@ function setGame(){
 function runGame(button){
     // sets the player object to match the button clicked
     player = button.textContent;
+    setPlayerSprite();
     // randomly generates the computer's choice
     computerTurn();
-    // sets the text on screen to match the choices made
-    playerChoiceText.textContent = `Player: ${player}`;
-    computerChoiceText.textContent = `Computer: ${computer}`;
+    setComputerSprite();
+    // sets the emoji on screen to match the choices made
+    playerChoiceText.innerText = playerSprite;
+    computerChoiceText.innerText = computerSprite;
     // compares the user's choice to the computer's choice to check for a winner. 
     // result is set with the "winner" variable
     checkWinner();
@@ -67,7 +72,9 @@ function restartGame(){
     computerScoreCount = 0;
     playerScore.textContent = playerScoreCount.toString();
     computerScore.textContent = computerScoreCount.toString();
-    resultText.textContent = "Choose a throw!"
+    playerChoiceText.innerText = '';
+    computerChoiceText.innerText = '';
+    resultText.textContent = "Choose!"
     runGame();
 }
 
@@ -119,5 +126,29 @@ function checkWinner(){
             winner = "You Lose!";
             computerScoreCount += 1;
         }
+    }
+}
+
+function setPlayerSprite(){
+    if (player == "Rock"){
+        playerSprite = "🪨";
+    }
+    else if (player == "Paper"){
+        playerSprite = "📄";
+    }
+    else {
+        playerSprite = "✂️";
+    }
+}
+
+function setComputerSprite(){
+    if (computer == "Rock"){
+        computerSprite = "🪨";
+    }
+    else if (computer == "Paper"){
+        computerSprite = "📄";
+    }
+    else {
+        computerSprite = "✂️";
     }
 }
