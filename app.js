@@ -15,24 +15,60 @@ let playerScoreCount = 0;
 let computerScoreCount = 0;
 let winner = "";
 
+choiceBtns.forEach(choiceBtn => { // choice buttons set as disabled
+    choiceBtn.disabled = true;
+  });
 
-setGame()
+// restart button (start) is listening for a click to call setGame
+restartBtn.addEventListener("click", setGame);
 
+// asks user to choose an option, 
 function setGame(){
     resultText.textContent = "Choose a throw!"
+    // enables choice buttons
+    choiceBtns.forEach(choiceBtn => {
+        choiceBtn.disabled = false;
+      });
+    // disables restart button until user clicks a throw
     document.querySelector("#restartBtn").disabled = true;
-    choiceBtns.forEach(button => button.addEventListener("click", () => {
-        player = button.textContent;
-        computerTurn();
-        playerChoiceText.textContent = `Player: ${player}`;
-        computerChoiceText.textContent = `Computer: ${computer}`;
-        checkWinner();
-        resultText.textContent = winner;
-        playerScore.textContent = playerScoreCount.toString();
-        computerScore.textContent = computerScoreCount.toString();
-        document.querySelector("#restartBtn").disabled = false;
+    restartBtn.textContent = "Restart Game"
+
+    // clicking on a button will run the runGame function
+    choiceBtns.forEach(button => button.addEventListener("click", function() {
+        runGame(button);
     }));
 
+}
+
+function runGame(button){
+    // sets the player object to match the button clicked
+    player = button.textContent;
+    // randomly generates the computer's choice
+    computerTurn();
+    // sets the text on screen to match the choices made
+    playerChoiceText.textContent = `Player: ${player}`;
+    computerChoiceText.textContent = `Computer: ${computer}`;
+    // compares the user's choice to the computer's choice to check for a winner. 
+    // result is set with the "winner" variable
+    checkWinner();
+    // result text on screen shows the winner variable
+    resultText.textContent = winner;
+    // player and computer score counts are displayed on screen. 
+    playerScore.textContent = playerScoreCount.toString();
+    computerScore.textContent = computerScoreCount.toString();
+    // restart button is set back to enabled.
+    document.querySelector("#restartBtn").disabled = false;
+    restartBtn.removeEventListener("click", restartGame);
+    restartBtn.addEventListener("click", restartGame);
+}
+
+function restartGame(){
+    playerScoreCount = 0;
+    computerScoreCount = 0;
+    playerScore.textContent = playerScoreCount.toString();
+    computerScore.textContent = computerScoreCount.toString();
+    resultText.textContent = "Choose a throw!"
+    runGame();
 }
 
 function computerTurn(){
