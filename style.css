@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
 /* https://colorhunt.co/palette/fffbf5f7efe5c3acd0674188 */
 
@@ -75,6 +74,18 @@ body {
     font-size: 15vw;
 }
 
+#playerChoice {
+    line-height: normal;
+    text-align: center;
+    vertical-align: center;
+    font-size: 15vw;
+}
+#computerChoice {
+    line-height: normal;
+    text-align: center;
+    vertical-align: center;
+    font-size: 15vw;
+}
 .result {
     font-size: 5vw;
     position: absolute;
@@ -121,7 +132,7 @@ body {
     cursor: not-allowed;
 }
 
-.resetBtn {
+.restartBtn {
     border: 2px solid ;
     border-radius: 15px;
     background-color: white;
@@ -134,17 +145,17 @@ body {
     box-shadow: 0 9px #674188;
 }
 
-.resetBtn:hover {
+.restartBtn:hover {
     background-color: #f7f7f7;
     }
     
-.resetBtn:active {
+.restartBtn:active {
 background-color: #f7f7f7;
 box-shadow: 0 5px #674188;
 transform: translateY(4px);
 }
 
-.resetBtn:disabled {
+.restartBtn:disabled {
 opacity: 0.6;
 cursor: not-allowed;
 }

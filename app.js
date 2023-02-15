@@ -38,6 +38,7 @@ function setGame(){
 
     // clicking on a button will run the runGame function
     choiceBtns.forEach(button => button.addEventListener("click", function() {
+        resetAnimation();
         runGame(button);
     }));
 
@@ -56,6 +57,11 @@ function runGame(button){
     // compares the user's choice to the computer's choice to check for a winner. 
     // result is set with the "winner" variable
     checkWinner();
+
+    // game anim insert
+    gameAnim(winner);
+
+
     // result text on screen shows the winner variable
     resultText.textContent = winner;
     // player and computer score counts are displayed on screen. 
@@ -68,12 +74,14 @@ function runGame(button){
 }
 
 function restartGame(){
+    resetAnimation();
     playerScoreCount = 0;
     computerScoreCount = 0;
     playerScore.textContent = playerScoreCount.toString();
     computerScore.textContent = computerScoreCount.toString();
     playerChoiceText.innerText = '';
     computerChoiceText.innerText = '';
+    winner = '';
     resultText.textContent = "Choose!"
     runGame();
 }
@@ -131,7 +139,7 @@ function checkWinner(){
 
 function setPlayerSprite(){
     if (player == "Rock"){
-        playerSprite = "🪨";
+        playerSprite = "🗿";
     }
     else if (player == "Paper"){
         playerSprite = "📄";
@@ -143,7 +151,7 @@ function setPlayerSprite(){
 
 function setComputerSprite(){
     if (computer == "Rock"){
-        computerSprite = "🪨";
+        computerSprite = "🗿";
     }
     else if (computer == "Paper"){
         computerSprite = "📄";
@@ -152,3 +160,46 @@ function setComputerSprite(){
         computerSprite = "✂️";
     }
 }
+
+const playerAnim = document.getElementById("playerChoice");
+const computerAnim = document.getElementById("computerChoice");
+
+
+// when player clicks an option, the players attack one another. the winner grows, and the loser shrinks
+
+function gameAnim(gameResult){
+    if (gameResult == "You Win!"){
+        computerChoiceText.style.opacity = 0.5;
+        computerChoiceText.style.transform = "scale(.7)";
+        computerChoiceText.style.transition = "all 0.5s ease";
+        playerChoiceText.style.transform = "scale(1.1)";
+        playerChoiceText.style.transition = "all 0.5s ease";
+    }
+    if (gameResult == "You Lose!"){
+        playerChoiceText.style.opacity = 0.5;
+        playerChoiceText.style.transform = "scale(.7)";
+        playerChoiceText.style.transition = "all 0.5s ease";
+        computerChoiceText.style.transform = "scale(1.1)";
+        computerChoiceText.style.transition = "all 0.5s ease";
+    }
+    if (gameResult == "Draw!"){
+        playerChoiceText.style.opacity = 0.5;
+        playerChoiceText.style.transform = "scale(.7)";
+        playerChoiceText.style.transition = "all 0.5s ease";
+        computerChoiceText.style.opacity = 0.5;
+        computerChoiceText.style.transform = "scale(.7)";
+        computerChoiceText.style.transition = "all 0.5s ease";
+    }
+  }
+
+function resetAnimation(){
+    playerChoiceText.style.removeProperty('scale');
+    playerChoiceText.style.removeProperty('opacity');
+    playerChoiceText.style.removeProperty('transform');
+    playerChoiceText.style.removeProperty('transition');
+    computerChoiceText.style.removeProperty('scale');
+    computerChoiceText.style.removeProperty('opacity');
+    computerChoiceText.style.removeProperty('transform');
+    computerChoiceText.style.removeProperty('transition');
+  }
+  
